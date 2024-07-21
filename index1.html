@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div class="box">
+        <div class="spine">
+            <span id="output">0</span>
+            <div class="progress">
+                <span id="meter"></span>
+            </div>
+            <button class="btn plus" onclick="plus()">+</button>
+            <button class="btn minus" onclick="minus()">-</button>
+        </div>
+    </div>
+
+    <script>
+        let output= document.getElementById("output");
+        let meter= document.getElementById("meter");
+        let x= 0;
+        output.innerHTML= x;
+        function plus(){
+            if(x>= 10){
+                return false;
+            }
+            output.innerHTML= ++x;
+            meter.style.height= x*10 + "%";
+            if(x>= 8 ){
+                meter.style.background= "#0f0";
+                meter.style.filter= "drop-shadow(0px 0px 2px #0f0) drop-shadow(0px 0px 10px #0f0)";
+            }
+            else if(x< 8 && x>2){
+                meter.style.background= "#fff";
+                meter.style.filter= "drop-shadow(0px 0px 2px #fff) drop-shadow(0px 0px 10px #fff)";
+            }
+        }
+        function minus(){
+            if(x<= 0){
+                return false;
+            }
+            output.innerHTML= --x;
+            meter.style.height= x*10 +"%";
+            if(x<=2 ){
+                meter.style.background= "red";
+                meter.style.filter= "drop-shadow(0px 0px 2px red) drop-shadow(0px 0px 10px red)";
+            }
+            else if(x< 8 && x>2){
+                meter.style.background= "#fff";
+                meter.style.filter= "drop-shadow(0px 0px 2px #fff) drop-shadow(0px 0px 10px #fff)";
+            }
+        }
+    </script>
+</body>
+</html>
